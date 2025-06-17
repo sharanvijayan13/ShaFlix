@@ -7,6 +7,42 @@
     <title>ShaFlix</title>
 </head>
 <body>
+    <div class="main-container">
+        <h2>ShaFlix: Mood-Based Movie Recommender</h2>
+        <input type="text" placeholder="Search for a movie">
+        <div class="discover-container navbar">
+
+            <label for="mood-select">Select your mood</label>
+            <select name="mood-select" id="mood-select">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="excited">Excited</option>
+                <option value="romantic">Romantic</option>
+                <option value="thrilling">Thrilling</option>
+                <option value="funny">Funny</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="scary">Scary</option>
+            </select>
+            <div class="most-popular-movies">
+                <h3>Most Popular Movies</h3>
+                <div class="movie-card">
+                    <img src="" alt="Movie Poster">
+                    <h4>Movie & Year</h4>
+                    <p>Description</p>
+                    <p>Rating</p>
+                    <p>Genre</p>
+                    <button>Favorite</button>
+                    <button>Add to Watchlist</button>
+                </div>
+            </div>
+        </div>
+        <div class="favorite-container navbar">
+        </div>
+        <div class="watchlist-container navbar">
+        </div>
+    </div>
 
 <script src="main.js"></script>
 </body>
