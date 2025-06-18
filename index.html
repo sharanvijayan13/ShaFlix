@@ -1,49 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>ShaFlix</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>ShaFlix</title>
 </head>
 <body>
-    <div class="main-container">
-        <h2>ShaFlix: Mood-Based Movie Recommender</h2>
-        <input type="text" placeholder="Search for a movie">
-        <div class="discover-container navbar">
+  <div class="main-container">
+    <h2>ShaFlix: Mood-Based Movie Recommender</h2>
 
-            <label for="mood-select">Select your mood</label>
-            <select name="mood-select" id="mood-select">
-                <option value="happy">Happy</option>
-                <option value="sad">Sad</option>
-                <option value="excited">Excited</option>
-                <option value="romantic">Romantic</option>
-                <option value="thrilling">Thrilling</option>
-                <option value="funny">Funny</option>
-                <option value="action">Action</option>
-                <option value="drama">Drama</option>
-                <option value="fantasy">Fantasy</option>
-                <option value="scary">Scary</option>
-            </select>
-            <div class="most-popular-movies">
-                <h3>Most Popular Movies</h3>
-                <div class="movie-card">
-                    <img src="" alt="Movie Poster">
-                    <h4>Movie & Year</h4>
-                    <p>Description</p>
-                    <p>Rating</p>
-                    <p>Genre</p>
-                    <button>Favorite</button>
-                    <button>Add to Watchlist</button>
-                </div>
-            </div>
-        </div>
-        <div class="favorite-container navbar">
-        </div>
-        <div class="watchlist-container navbar">
-        </div>
+    <nav class="nav-bar">
+      <a href="#">Discover</a>
+      <a href="./pages/favorites.html">Favorites</a>
+      <a href="./pages/watchlist.html">Watchlist</a>
+    </nav>
+
+    <input type="text" id="search-input" class="search-input" placeholder="Search for movies..."/>
+
+    <div class="discover-container navbar">
+      <select name="mood-select" id="mood-select">
+        <option value="select">Select your mood</option>
+        <option value="happy">Happy</option>
+        <option value="sad">Sad</option>
+        <option value="excited">Excited</option>
+        <option value="romantic">Romantic</option>
+        <option value="thrilling">Thrilling</option>
+        <option value="funny">Funny</option>
+        <option value="action">Action</option>
+        <option value="drama">Drama</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="scary">Scary</option>
+      </select>
+
+      <div class="most-popular-movies">
+        <h3 class="heading">Most Popular Movies</h3>
+        <div class="movie-card" id="movie-card"></div>
+      </div>
     </div>
+  </div>
 
-<script src="main.js"></script>
+  <script src="./main.js" type="module"></script>
 </body>
 </html>
