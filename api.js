@@ -7,8 +7,7 @@ const AUTH_HEADER = {
   Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYzdlOGQ4MzQ3OTEwMTg5NWYxYzM5YWRjNDgyYTI3ZSIsIm5iZiI6MTc0OTQ0Nzg4My45ODMsInN1YiI6IjY4NDY3NGNiZmRkZTAzMTZmNGZkNWQ4NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gSl7ij2eaIcAaVuoI5rRtv2qVQCND6NvIwmfskKw0P4",
 };
 
-
-export async function fetchPopularMovies() {
+export async function PopularMovies() {
   const url = `${BASE_URL}?language=en-US&sort_by=popularity.desc&page=1`;
 
   try {
@@ -21,7 +20,7 @@ export async function fetchPopularMovies() {
   }
 }
 
-export async function fetchMoviesByMood(mood) {
+export async function MoviesByMood(mood) {
   const genreIds = moodGenreMap[mood];
   if (!genreIds) return [];
 
