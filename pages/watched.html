@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../logo.jpg">
+  <title>ShaFlix</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="main-container">
+    <h2>ShaFlix: Mood-Based Movie Recommender</h2>
+
+        <nav class="nav-bar">
+            <a href="../index.html">Discover</a>
+            <a href="./favorites.html">Favorites</a>
+            <a href="./watchlist.html">Watchlist</a>
+            <a href="#">Watched</a>
+        </nav>
+
+        <h3 class="heading">Watched</h3>
+        <div class="movie-card" id="movie-card"></div>
+        <div class="pagination" id="pagination"></div>
+        <div class="dialog-box" id="dialog-box"></div>
+        <div id="diary-dialog" class="dialog-overlay">
+          <div class="dialog-box">
+            <span class="close-btn">&times;</span>
+            <h3 id="diary-movie-title"></h3>  
+            <p id="diary-movie-release"></p>
+            <textarea id="diary-textarea" placeholder="Write your thoughts..."></textarea>
+            <button id="diary-save-btn">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../utils/watched.js"></script>
+</body>
+</html>
