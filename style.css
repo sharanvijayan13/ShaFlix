@@ -97,13 +97,13 @@ transform: scale(0.99);
 
 .movie-card-container img {
 width: 100%;
-height: auto;
+height: 380px;
 display: block;
 margin-bottom: 5px;
 }
 
 .movie-card-container h3 {
-font-size: 0.77rem;
+font-size: 0.68rem;
 margin: 5px 0;
 color: #ffffff;
 text-align: center;
@@ -116,13 +116,14 @@ font-size: 0.70rem;
 }
 
 .js-favorite-button,
+.js-favorite-remove,
 .js-watchlist-button,
 .remove-button,
 .watched-button,
 .unwatch-button, .diary-button {
 padding: 8px;
 margin: 8px;
-font-size: 18px;
+font-size: 20px;
 cursor: pointer;
 display: inline;
 color: #ccc;
@@ -154,7 +155,7 @@ color: brown;
 }
 
 .diary-button.diary-added {
-color: #2ecc71 !important; /* Green color when diary is added */
+color: #2ecc71 !important;
 }
 
 .nav-bar {
@@ -244,30 +245,6 @@ box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 color: #2ecc71 !important; 
 }
 
-.diary-movie-card {
-display: flex;
-flex-wrap: wrap;
-gap: 35px;
-justify-content: left;
-padding: 20px;
-}
-
-.diary-container {
-display: flex;
-align-items: flex-start;
-gap: 20px;
-padding: 15px;
-background-color: #2a2a2a;
-border-radius: 8px;
-margin-bottom: 20px;
-}
-
-.diary-container img {
-width: 150px;
-height: auto;
-border-radius: 4px;
-}
-
 .movie-details {
 flex-grow: 1;
 }
@@ -275,17 +252,6 @@ flex-grow: 1;
 .movie-details h3 {
 margin: 0 0 10px 0;
 color: #fff;
-}
-
-.diary-input {
-width: 100%;
-height: 100px;
-background-color: #333;
-border: 1px solid #444;
-color: #fff;
-padding: 10px;
-border-radius: 4px;
-resize: vertical;
 }
 
 .diary-save-btn {
@@ -341,17 +307,19 @@ color: #fff;
 
 #diary-textarea {
 width: calc(100% - 20px);
-height: 150px;
+height: 220px;
 margin-top: 10px;
 padding: 10px;
 background-color: #2a2a2a;
 color: #f1f1f1;
+font-size: 15px;
+font-family: 'Poppins', sans-serif;
 border: 1px solid #333;
-border-radius: 5px;
+border-radius: 10px;
 resize: vertical;
 }
 
-#diary-save-btn {
+#diary-save-btn {   
 display: block;
 width: 100%;
 padding: 10px;
@@ -361,18 +329,24 @@ color: #fff;
 border: none;
 border-radius: 5px;
 cursor: pointer;
-font-size: 16px;
+font-size: 18px;
 }
 
 #diary-save-btn:hover {
 background-color: #1aa34a;
 }
 
+#diary-movie-title {
+font-size: 18px;
+font-weight: 600;
+text-align: center;
+color: #1db954;
+}
+
 .dialog-content {
 display: flex;
 gap: 20px;
 }
-
 
 #movie-dialog-info {
 display: none;

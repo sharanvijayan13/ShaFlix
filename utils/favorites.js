@@ -36,7 +36,7 @@ function renderFavorites() {
       <div class="movie-card-container">
         <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" />
         <h3>${movie.title} (${movie.release_date?.split('-')[0] || 'N/A'})</h3>
-        <p>${movie.overview?.substring(0, 120) || "No description"}...</p>
+        <p>${movie.overview?.substring(0, 110) || "No description"}...</p>
         <p>⭐ ${movie.vote_average?.toFixed(1) || "N/A"}</p>
         <div class="icon-buttons">
           <i class="fa-solid fa-heart js-favorite-remove" 
