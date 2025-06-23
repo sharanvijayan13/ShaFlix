@@ -1,4 +1,4 @@
-# 🎬 ShaFlix - Your Personal Movie Mood Recommender
+# 🎬 ShaFlix - Mood-Based Movie Recommender
 
 ShaFlix is a lightweight web application designed to help you discover movies based on your mood, manage watchlists, favorites, and maintain your personal movie diary.
 
