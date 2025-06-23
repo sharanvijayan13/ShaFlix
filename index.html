@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShaFlix: Mood-Based Movie Recommender</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="./logo.jpg" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="main-container">
+    <h2>ShaFlix: Mood-Based Movie Recommender</h2>
+
+    <div class="search-container">
+      <i class="fas fa-search"></i>
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="Search for movies..."
+      />
+    </div>
+
+    <nav class="nav-bar">
+      <a href="#">Discover</a>
+      <a href="./pages/favorites.html">Favorites</a>
+      <a href="./pages/watchlist.html">Watchlist</a>
+      <a href="./pages/watched.html">Watched</a>
+    </nav>
+
+    <div class="discover-container navbar">
+      <select name="mood-select" id="mood-select">
+        <option value="select">Popular</option>
+        <option value="happy">Happy</option>
+        <option value="sad">Sad</option>
+        <option value="excited">Excited</option>
+        <option value="romantic">Romantic</option>
+        <option value="thrilling">Thrilling</option>
+        <option value="funny">Funny</option>
+        <option value="action">Action</option>
+        <option value="drama">Drama</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="scary">Scary</option>
+      </select>
+
+      <h2 id="heading">Most Popular Movies</h2>
+      <div class="movie-card" id="movie-card"></div>
+    </div>
+
+    <div id="movie-dialog-info" class="dialog-overlay-info" style="display: none;">
+      <div class="dialog-box-info">
+        <span class="close-btn-info">&times;</span>
+        <div class="dialog-content-info">
+          <img id="dialog-poster-info" src="" alt="Movie Poster" />
+          <div class="dialog-details-info">
+            <h2 id="dialog-title-info"></h2>
+            <p><strong>Release Year:</strong> <span id="dialog-release-info"></span></p>
+            <p><strong>Rating:</strong> <span id="dialog-rating-info"></span></p>
+            <p><strong>Director:</strong> <span id="dialog-director-info"></span></p>
+            <p><strong>Cast:</strong> <span id="dialog-cast-info"></span></p>
+            <p><strong>Synopsis:</strong></p>
+            <p id="dialog-overview-info"></p>
+          </div>
+        </div>
+      </div>
+    </div>   
+    
+
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+  <script src="./main.js" type="module"></script>
+</body>
+</html>
