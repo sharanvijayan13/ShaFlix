@@ -55,5 +55,6 @@ ShaFlix is a lightweight web application designed to help you discover movies ba
 
 ---
 
-🎯 Conclusion
+## 🎯 Conclusion
+
 ShaFlix is a simple yet effective platform to discover movies based on your mood and maintain your personal movie space. Whether you're in the mood for action, romance, or just exploring — ShaFlix makes your movie journey seamless and fun.
