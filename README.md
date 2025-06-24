@@ -14,12 +14,43 @@ ShaFlix is a lightweight web application designed to help you discover movies ba
 ✅ Responsive design for desktop and mobile  
 
 ---
-
 ## 🛠️ Tech Stack
 
 - **HTML5, CSS3** - Frontend structure & styling  
 - **Vanilla JavaScript** - Core functionality  
 - **TheMovieDB API** - Movie data and posters  
 - **LocalStorage** - Store Favorites, Watchlist, and Diary data locally  
+
+---
+
+## 🖥️ Preview
+
+### 🏠 Home Page
+![Home](assets/home.gif)
+
+---
+
+### 🔍 Movie Search
+![Search](assets/SEARCH.gif)
+
+---
+
+### 🎭 Mood Picker Recommendations
+![Mood Picker](assets/Mood.gif)
+
+---
+
+### ❤️ Add to Favorites
+![Likes](assets/Likes.gif)
+
+---
+
+### ✅ Watchlist Management
+![Watchlist](assets/watchlist.gif)
+
+---
+
+### 📖 Movie Diary
+![Diary](assets/diary.gif)
 
 ---
