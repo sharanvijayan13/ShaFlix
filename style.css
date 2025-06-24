@@ -456,12 +456,12 @@ grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 
 @media (max-width: 480px) {
 #heading {
-font-size: 1rem;
+font-size: 0.5rem;
 margin: 1rem;
 }
 
 .nav-bar a {
-font-size: 0.85rem;
+font-size: 0.45rem;
 }
 
 .movie-card {
@@ -471,4 +471,6 @@ grid-template-columns: 1fr;
 .movie-card-container img {
 height: auto;
 }
+
+
 }
