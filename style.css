@@ -458,7 +458,7 @@ height: auto;
 }
 
 .dialog-box-info {
-width: 80%;
+width: 55%;
 }
 
 .dialog-content-info {
@@ -470,8 +470,8 @@ flex: 1;
 }
 
 .dialog-box-info img {
-width: 100px;
-height: 100px;
+width: 70px;
+height: 70px;
 }
 
 .dialog-details-info h2 {
