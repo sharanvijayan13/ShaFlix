@@ -424,3 +424,39 @@ color: #ddd;
 .dialog-details-info strong {
 color: #1db954;
 }
+
+  
+@media (max-width: 768px) {
+  #heading {
+    font-size: 1.2rem;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .movie-card {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  #heading {
+    font-size: 1rem;
+    margin: 1rem;
+  }
+
+  .nav-bar a {
+    font-size: 0.85rem;
+  }
+
+  .movie-card {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-card-container img {
+    height: auto;
+  }
+}
