@@ -20,6 +20,10 @@
             <a href="#">Watched</a>
         </nav>
 
+        <div class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+
         <h3 class="heading">Watched</h3>
         <div class="movie-card" id="movie-card"></div>
         <div id="diary-dialog" class="dialog-overlay">
@@ -34,6 +38,24 @@
       </div>
     </div>
   </div>
+
+  <div id="movie-dialog-info" class="dialog-overlay-info" style="display: none;">
+    <div class="dialog-box-info">
+      <span class="close-btn-info">&times;</span>
+      <div class="dialog-content-info">
+        <img id="dialog-poster-info" src="" alt="Movie Poster" />
+        <div class="dialog-details-info">
+          <h2 id="dialog-title-info"></h2>
+          <p><strong>Release Year:</strong> <span id="dialog-release-info"></span></p>
+          <p><strong>Rating:</strong> <span id="dialog-rating-info"></span></p>
+          <p><strong>Director:</strong> <span id="dialog-director-info"></span></p>
+          <p><strong>Cast:</strong> <span id="dialog-cast-info"></span></p>
+          <p><strong>Synopsis:</strong></p>
+          <p id="dialog-overview-info"></p>
+        </div>
+      </div>
+    </div>
+  </div>  
 
   <script src="../utils/watched.js"></script>
 </body>

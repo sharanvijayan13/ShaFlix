@@ -21,7 +21,7 @@ function showToast(message) {
 
 function openDiaryDialog(movie) {
   currentMovieId = movie.id;
-  diaryMovieTitle.textContent = ("Diary of " + movie.title);
+  diaryMovieTitle.textContent = "Diary of " + movie.title;
   const diaryEntries = JSON.parse(localStorage.getItem("diaryEntries")) || {};
   diaryTextarea.value = diaryEntries[currentMovieId] || "";
   diaryDialog.style.display = "flex";
@@ -31,6 +31,30 @@ function closeDiaryDialog() {
   diaryDialog.style.display = "none";
 }
 
+async function openMovieDialog(movie) {
+  const credits = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=cc7e8d83479101895f1c39adc482a27e`).then(res => res.json());
+  const director = credits.crew.find(p => p.job === "Director")?.name || "Unknown";
+  const castList = credits.cast.slice(0, 5).map(p => p.name).join(", ") || "N/A";
+
+  document.getElementById("dialog-title-info").textContent = movie.title;
+  document.getElementById("dialog-release-info").textContent = movie.release_date?.split("-")[0] || "N/A";
+  document.getElementById("dialog-rating-info").textContent = movie.vote_average?.toFixed(1) || "N/A";
+  document.getElementById("dialog-director-info").textContent = director;
+  document.getElementById("dialog-cast-info").textContent = castList;
+  document.getElementById("dialog-overview-info").textContent = movie.overview || "No synopsis available.";
+  document.getElementById("dialog-poster-info").src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+  document.getElementById("movie-dialog-info").style.display = "flex";
+}
+
+document.querySelector(".close-btn-info").addEventListener("click", () => {
+  document.getElementById("movie-dialog-info").style.display = "none";
+});
+
+document.getElementById("movie-dialog-info").addEventListener("click", (e) => {
+  if (e.target.id === "movie-dialog-info") e.target.style.display = "none";
+});
+
 diarySaveBtn.addEventListener("click", () => {
   const diaryEntries = JSON.parse(localStorage.getItem("diaryEntries")) || {};
   const newText = diaryTextarea.value.trim();
@@ -38,37 +62,33 @@ diarySaveBtn.addEventListener("click", () => {
   if (newText) {
     diaryEntries[currentMovieId] = newText;
     localStorage.setItem("diaryEntries", JSON.stringify(diaryEntries));
-    
+
     let diaryMovies = JSON.parse(localStorage.getItem("diary")) || [];
     if (!diaryMovies.includes(currentMovieId)) {
-        diaryMovies.push(currentMovieId);
-        localStorage.setItem("diary", JSON.stringify(diaryMovies));
+      diaryMovies.push(currentMovieId);
+      localStorage.setItem("diary", JSON.stringify(diaryMovies));
     }
-    
     showToast("Entry saved!");
   } else {
-
     delete diaryEntries[currentMovieId];
     localStorage.setItem("diaryEntries", JSON.stringify(diaryEntries));
 
     let diaryMovies = JSON.parse(localStorage.getItem("diary")) || [];
     const movieIndex = diaryMovies.indexOf(currentMovieId);
     if (movieIndex > -1) {
-        diaryMovies.splice(movieIndex, 1);
-        localStorage.setItem("diary", JSON.stringify(diaryMovies));
+      diaryMovies.splice(movieIndex, 1);
+      localStorage.setItem("diary", JSON.stringify(diaryMovies));
     }
     showToast("Entry removed.");
   }
-  
+
   closeDiaryDialog();
   renderWatched();
 });
 
 closeBtn.addEventListener("click", closeDiaryDialog);
 window.addEventListener("click", (event) => {
-  if (event.target === diaryDialog) {
-    closeDiaryDialog();
-  }
+  if (event.target === diaryDialog) closeDiaryDialog();
 });
 
 function renderWatched() {
@@ -87,7 +107,6 @@ function renderWatched() {
 
     const movieCard = document.createElement("div");
     movieCard.classList.add("movie-info");
-
     movieCard.innerHTML = `
       <div class="movie-card-container">
         <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" />
@@ -96,14 +115,17 @@ function renderWatched() {
         <p>⭐ ${movie.vote_average?.toFixed(1) || "N/A"}</p>
         <div class="icon-buttons">
           <i class="fa-solid fa-eye-slash unwatch-button" title="Unwatch" data-index="${index}"></i>
-          <i class="fa-solid fa-book diary-button ${isInDiary ? 'diary-added' : ''}"
-             title="${isInDiary ? "Edit your thoughts" : "Add your thoughts"}" 
-             data-id="${movie.id}"></i>
+          <i class="fa-solid fa-book diary-button ${isInDiary ? "diary-added" : ""}" title="${isInDiary ? "Edit your thoughts" : "Add your thoughts"}" data-id="${movie.id}"></i>
         </div>
       </div>
     `;
-
     movieCardContainer.appendChild(movieCard);
+
+    movieCard.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("unwatch-button") && !e.target.classList.contains("diary-button")) {
+        openMovieDialog(movie);
+      }
+    });
   });
 
   document.querySelectorAll(".unwatch-button").forEach(button => {
@@ -128,9 +150,7 @@ function renderWatched() {
     button.addEventListener("click", () => {
       const movieId = parseInt(button.dataset.id);
       const movie = watched.find(m => m.id === movieId);
-      if (movie) {
-        openDiaryDialog(movie);
-      }
+      if (movie) openDiaryDialog(movie);
     });
   });
 }

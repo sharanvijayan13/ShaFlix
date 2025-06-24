@@ -33,10 +33,15 @@ let currentMode = 'popular';
 let currentMood = null;
 let currentQuery = '';
 
-function updateSearchParams(query) {
+function updateSearchParams({ query = '', mood = '' }) {
   const params = new URLSearchParams(window.location.search);
+
   if (query) params.set('query', query);
   else params.delete('query');
+
+  if (mood) params.set('mood', mood);
+  else params.delete('mood');
+
   window.history.replaceState({}, '', `${location.pathname}?${params}`);
 }
 
@@ -44,9 +49,7 @@ function updateHeading() {
   if (currentMode === 'popular') {
     heading.textContent = 'Most Popular Movies';
   } else if (currentMode === 'mood') {
-    heading.textContent = `Top ${
-      currentMood.charAt(0).toUpperCase() + currentMood.slice(1)
-    } Movies`;
+    heading.textContent = `Top ${currentMood.charAt(0).toUpperCase() + currentMood.slice(1)} Movies`;
   } else if (currentMode === 'search') {
     heading.textContent = `Search Results for "${currentQuery}"`;
   }
@@ -54,6 +57,7 @@ function updateHeading() {
 
 function renderPagination(current, total) {
   paginationContainer.innerHTML = '';
+
   const prevBtn = document.createElement('a');
   prevBtn.href = '#';
   prevBtn.innerHTML = '&laquo;';
@@ -95,6 +99,7 @@ function renderPagination(current, total) {
 
 function displayMovies(movies) {
   movieCardContainer.innerHTML = '';
+
   if (!movies.length) {
     movieCardContainer.innerHTML = '<p>No movies found</p>';
     return;
@@ -186,6 +191,7 @@ document.getElementById('movie-dialog-info').addEventListener('click', (e) => {
 
 async function fetchAndDisplayMovies() {
   let data;
+
   if (currentMode === 'popular') data = await PopularMovies(currentPage);
   else if (currentMode === 'mood') data = await MoviesByMood(currentMood, currentPage);
   else if (currentMode === 'search') data = await SearchMovies(currentQuery, currentPage);
@@ -199,37 +205,58 @@ async function fetchAndDisplayMovies() {
 }
 
 moodSelect.addEventListener('change', async (e) => {
+  const mood = e.target.value === 'select' ? '' : e.target.value;
   searchInput.value = '';
-  updateSearchParams('');
-  currentMode = e.target.value === 'select' ? 'popular' : 'mood';
-  currentMood = e.target.value === 'select' ? null : e.target.value;
   currentQuery = '';
   currentPage = 1;
+
+  if (mood) {
+    currentMode = 'mood';
+    currentMood = mood;
+  } else {
+    currentMode = 'popular';
+    currentMood = null;
+  }
+
+  updateSearchParams({ mood });
   await fetchAndDisplayMovies();
 });
 
 searchInput.addEventListener('input', async (e) => {
   const query = e.target.value.trim();
   currentPage = 1;
+
   if (!query) {
     currentMode = 'popular';
     currentQuery = '';
-    updateSearchParams('');
+    currentMood = null;
+    moodSelect.value = 'select';
+    updateSearchParams({});
   } else {
     currentMode = 'search';
     currentQuery = query;
-    updateSearchParams(query);
+    currentMood = null;
+    moodSelect.value = 'select';
+    updateSearchParams({ query });
   }
+
   await fetchAndDisplayMovies();
 });
 
 window.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search);
   const query = params.get('query');
+  const mood = params.get('mood');
+
   if (query) {
     searchInput.value = query;
     currentMode = 'search';
     currentQuery = query;
+  } else if (mood) {
+    moodSelect.value = mood;
+    currentMode = 'mood';
+    currentMood = mood;
   }
+
   await fetchAndDisplayMovies();
 });
