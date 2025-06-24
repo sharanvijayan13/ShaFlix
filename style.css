@@ -437,26 +437,9 @@ color: #ddd;
 color: #1db954;
 }
 
-
-@media (max-width: 768px) {
-#heading {
-font-size: 1.2rem;
-}
-
-.nav-bar {
-flex-wrap: wrap;
-justify-content: center;
-gap: 1rem;
-}
-
-.movie-card {
-grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-}
-}
-
 @media (max-width: 480px) {
 #heading {
-font-size: 0.5rem;
+font-size: 0.7rem;
 margin: 1rem;
 text-align: center;
 }
@@ -467,11 +450,40 @@ font-size: 0.45rem;
 
 .movie-card {
 grid-template-columns: 1fr;
+margin-bottom: 15px;
 }
 
 .movie-card-container img {
 height: auto;
 }
 
+.dialog-box-info {
+width: 100%;
+}
 
+.dialog-content-info {
+flex-direction: column;
+}
+
+.dialog-details-info {
+flex: 1;
+}
+
+.dialog-details-info h2 {
+font-size: 1.2rem;
+}
+
+.dialog-details-info h2 {
+margin-top: 0;
+font-size: 1.2rem;
+color: #1db954;
+text-decoration: underline;
+} 
+.dialog-details-info p {
+font-size: 0.8rem;
+}
+
+.dialog-details-info strong {
+font-size: 0.8rem;
+}
 }
