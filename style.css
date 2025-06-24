@@ -128,13 +128,6 @@ font-size: 0.75rem;
 text-align: left;
 }
 
-.hamburger {
-    display: none;
-    font-size: 1.5rem;
-    color: #fff;
-    cursor: pointer;
-  }
-
 .js-favorite-button,
 .js-favorite-remove,
 .js-watchlist-button,
@@ -456,10 +449,6 @@ justify-content: center;
 gap: 1rem;
 }
 
-.hamburger {
-    display: block;
-  }
-
 .movie-card {
 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
@@ -478,10 +467,6 @@ font-size: 0.85rem;
 .movie-card {
 grid-template-columns: 1fr;
 }
-
-.hamburger {
-    display: block;
-  }
 
 .movie-card-container img {
 height: auto;
