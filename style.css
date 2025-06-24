@@ -458,6 +458,7 @@ grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 #heading {
 font-size: 0.5rem;
 margin: 1rem;
+text-align: center;
 }
 
 .nav-bar a {
