@@ -6,7 +6,7 @@ import {
   getWatchProviders,
 } from './api.js';
 
-const movieCardContainer = document.getElementById('movie-card');
+const movieCardContainer = document.getElementById('movie-card-container');
 const moodSelect = document.getElementById('mood-select');
 const searchInput = document.getElementById('search-input');
 const heading = document.getElementById('heading');
