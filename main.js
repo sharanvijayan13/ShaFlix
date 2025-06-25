@@ -11,8 +11,8 @@ const moodSelect = document.getElementById('mood-select');
 const searchInput = document.getElementById('search-input');
 const heading = document.getElementById('heading');
 const paginationContainer = document.getElementById('pagination');
-
 const toast = document.createElement('div');
+
 toast.id = 'toast';
 toast.className = 'toast';
 document.body.appendChild(toast);
@@ -101,7 +101,7 @@ function displayMovies(movies) {
   movieCardContainer.innerHTML = '';
 
   if (!movies.length) {
-    movieCardContainer.innerHTML = '<p>No movies found</p>';
+    movieCardContainer.innerHTML = '<p>No movies found...</p>';
     return;
   }
 
@@ -259,4 +259,11 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   await fetchAndDisplayMovies();
+});
+
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
 });
